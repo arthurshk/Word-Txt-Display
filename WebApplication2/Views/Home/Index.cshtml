@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Upload";
+    var wordList = ViewData["WordList"] as List<Word>;
+}
+
+<h2>Upload a Text File</h2>
+
+<form asp-action="Upload" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label for="file">Select a .txt file:</label>
+        <input type="file" name="file" id="file" class="form-control-file" accept=".txt" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+
+@if (wordList != null && wordList.Count > 0)
+{
+    <h2>Word List</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Word</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var word in wordList)
+            {
+                <tr>
+                    <td>@word.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,23 @@
+﻿@* @model List<Word>
+
+@{
+    ViewData["Title"] = "Word List";
+}
+
+<h2>Word List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Word</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var word in Model)
+        {
+            <tr>
+                <td>@word.Value</td>
+            </tr>
+        }
+    </tbody>
+</table> *@
